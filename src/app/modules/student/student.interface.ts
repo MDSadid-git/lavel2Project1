@@ -7,15 +7,16 @@ export type Guardian = {
   motherOccupation: string;
   motherContcatNo: number;
 };
+export type UserName = {
+  firstName: string;
+  middleName?: string;
+  lastName: string;
+};
 export type Student = {
   id: string;
-  name: {
-    firstName: string;
-    middleName: string;
-    lastName: string;
-  };
+  name: UserName;
   gender: 'male' | 'female';
-  dateOfBirth: string;
+  dateOfBirth?: string;
   email: string;
   contactNo: number;
   emergencyContacNo: number;
@@ -23,4 +24,6 @@ export type Student = {
   presentAddress: string;
   permanetAddress: string;
   guardian: Guardian;
+  profileImage?: string;
+  isActive: 'active' | 'inActive';
 };

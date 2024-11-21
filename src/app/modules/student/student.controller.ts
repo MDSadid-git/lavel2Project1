@@ -31,8 +31,19 @@ const getAllStudent = async (req: Request, res: Response) => {
     console.log(error);
   }
 };
+const getOneStudent = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  const result = await StudentServices.oneStudentIntoDB(id);
+  res.status(200).json({
+    success: true,
+    message: 'Find your student data successfully',
+    data: result,
+  });
+};
 
 export const StudentController = {
   createStudent,
   getAllStudent,
+  getOneStudent,
 };

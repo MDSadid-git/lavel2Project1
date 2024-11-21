@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import { Student } from './student.interface';
 import { StudentModel } from './student.model';
 
@@ -9,7 +10,12 @@ const allStudentIntoDB = async () => {
   const result = await StudentModel.find();
   return result;
 };
+const oneStudentIntoDB = async (id: string) => {
+  const result = await StudentModel.findOne({ id });
+  return result;
+};
 export const StudentServices = {
   createStudentIntoDB,
   allStudentIntoDB,
+  oneStudentIntoDB,
 };
